@@ -71,7 +71,7 @@
                             <div class="form-group">
                                 <label for="file">File:</label>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="file" name="file" onchange="previewFile()" accept="image/*,video/*" required>
+                                    <input type="file" class="custom-file-input" id="file" name="file" onchange="previewFile()" accept="image/*,video/*" >
                                     <label class="custom-file-label" for="file">Choose file</label>
                                 </div>
                                 <div class="mt-3">
@@ -120,10 +120,12 @@ function previewFile() {
     <div style="display: flex; justify-content: center; align-items: center;">
         <div class="card-container" style="display: flex; flex-direction: column;">
             <div class="card" th:each="post : ${posts}" style="max-width: 400px; margin-bottom: 10px;">
+                <div th:if="${post.fileExtension eq ''}">
+                    </div>
                 <div th:if="${post.fileExtension eq 'mp4'}">
                     <video class="card-img-top" th:src="@{'/user/posts/' + ${post.pid} + '/media'}" controls></video>
                 </div>
-                <div th:if="${post.fileExtension ne 'mp4'}">
+                <div th:if="${post.fileExtension eq 'jpg'}">
                     <img class="card-img-top" th:src="@{'/user/posts/' + ${post.pid} + '/media'}" alt="Post Media">
                 </div>
                 <div class="card-body">

@@ -27,13 +27,16 @@
 
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <div class="card-columns" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
-      <div class="card" th:each="post : ${posts}">
-        <div th:if="${post.fileExtension eq 'mp4'}">
-          <video class="card-img-top" th:src="@{'/user/posts/' + ${post.pid} + '/media'}" controls></video>
+    <div class="card-container" style="display: flex; flex-direction: column;">
+      <div class="card" th:each="post : ${posts}" style="max-width: 400px; margin-bottom: 10px;">
+        <div th:if="${post.fileExtension eq ''}">
         </div>
-        <div th:if="${post.fileExtension ne 'mp4'}">
-          <img class="card-img-top" th:src="@{'/user/posts/' + ${post.pid} + '/media'}" alt="Post Media">
+        <div th:if="${post.fileExtension eq 'mp4'}">
+          <video class="card-img-top" th:src="@{'/user/posts/' + ${post.pid} + '/media'}" controls controlsList="nodownload"></video>
+
+        </div>
+        <div th:if="${post.fileExtension eq 'jpg'}">
+          <img class="card-img-top" th:src="@{'/user/posts/' + ${post.pid} + '/media'}" >
         </div>
         <div class="card-body">
           <p class="card-text" th:text="${post.message}"></p>

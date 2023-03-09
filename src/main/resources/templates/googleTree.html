@@ -27,7 +27,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid justify-content-start">
         <a class="navbar-brand"  href="/user/diary/friends">Friends</a>
-        <a class="navbar-brand " href="/user/gt" >Family Ancestry</a>
+        <a class="navbar-brand  text-success" href="/user/gt"  >Family Ancestry</a>
         <!--            <a class="navbar-brand " href="/user/familyRequests">Travel</a>-->
         <!--            <a class="navbar-brand" href="/user/myFriends">Just Happened</a>-->
         <!--            <a class="navbar-brand" href="/user/myFamily">Bucket List</a>-->
@@ -71,11 +71,12 @@
 
 // Create the form HTML
 var formHtml = "<form id='childForm'>";
-formHtml += "<h2>Add a child to name</h2>";
+formHtml += "<h2>Add a Family Member</h2>";
 formHtml += "<label for='name'>Name:</label>";
 formHtml += "<input type='text' id='name' name='name'><br><br>";
 formHtml += "<label for='email'>Add as:</label>";
 formHtml += "<input type='text' id='addas' name='addas'><br><br>";
+formHtml += "<h4>(CHILD - PARENT)</h4>";
 formHtml += "<button type='submit'>Submit</button>";
 formHtml += "</form>";
 
@@ -98,7 +99,7 @@ popup.document.getElementById("childForm").addEventListener("submit", function(e
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         // Success
-        console.log("Child added successfully");
+        console.log("Node added successfully");
         popup.close(); // close popup window
       } else {
         // Error

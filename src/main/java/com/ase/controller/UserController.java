@@ -188,22 +188,33 @@ public class UserController {
 
     @GetMapping("/diary/addAsFriend/{id}")
     public String addAsFriend(Model model, @PathVariable String id){
-        DiaryRequest diaryRequest = new DiaryRequest();
-        diaryRequest.setDiaryId(id);
-        diaryRequest.setRequestedBy(SecurityContextHolder.getContext().getAuthentication().getName());
-        diaryRequest.setRequestedAs("FRIEND");
-        diaryRequestRepo.save(diaryRequest);
+
+        String user = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user1 = userRepo.findByEmail(user).get(0);
+        if(diaryRequestRepo.myDairyRequestWithUser(id, user1.getEmail()).isEmpty()){
+            DiaryRequest diaryRequest = new DiaryRequest();
+            diaryRequest.setDiaryId(id);
+            diaryRequest.setRequestedBy(SecurityContextHolder.getContext().getAuthentication().getName());
+            diaryRequest.setRequestedAs("FRIEND");
+            diaryRequestRepo.save(diaryRequest);
+        }
         homePage(model);
 
-        return "user/userHome";
+        return "redirect:/user/home";
     }
     @GetMapping("/diary/addAsFamily/{id}")
     public String addAsFamily(Model model, @PathVariable String id){
-        DiaryRequest diaryRequest = new DiaryRequest();
-        diaryRequest.setDiaryId(id);
-        diaryRequest.setRequestedBy(SecurityContextHolder.getContext().getAuthentication().getName());
-        diaryRequest.setRequestedAs("FAMILY");
-        diaryRequestRepo.save(diaryRequest);
+
+        String user = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user1 = userRepo.findByEmail(user).get(0);
+        if(diaryRequestRepo.myDairyRequestWithUser(id, user1.getEmail()).isEmpty()){
+            DiaryRequest diaryRequest = new DiaryRequest();
+            diaryRequest.setDiaryId(id);
+            diaryRequest.setRequestedBy(SecurityContextHolder.getContext().getAuthentication().getName());
+            diaryRequest.setRequestedAs("FAMILY");
+            diaryRequestRepo.save(diaryRequest);
+        }
+
         homePage(model);
 
         return "user/userHome";
