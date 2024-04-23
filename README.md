@@ -24,8 +24,3 @@ The Family & Friends Chronicle is a dynamic web application developed using Spri
 - JSON Web Token (JWT): Secure method for transmitting information between parties.
 - Swagger: API documentation tool for documenting and testing APIs.
 - JavaScript: Programming language for adding interactivity and dynamic content to web pages.
-
-**Project Repository Title Suggestion:**
-FamilyFriendsChronicle
-
-By organizing the README file in this manner, users can quickly understand the purpose, features, and technologies used in the Family & Friends Chronicle project, facilitating its adoption and contribution on GitHub.
