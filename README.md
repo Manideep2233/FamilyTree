@@ -24,3 +24,16 @@ The Family & Friends Chronicle is a dynamic web application developed using Spri
 - JSON Web Token (JWT): Secure method for transmitting information between parties.
 - Swagger: API documentation tool for documenting and testing APIs.
 - JavaScript: Programming language for adding interactivity and dynamic content to web pages.
+
+
+**Execution Process:**
+
+make sure java 17, maven is installed and set up. Enter into the project directory and run the spring application.
+```bash
+  mvn spring-boot:run
+  ```
+Open browser window and in each one go to the below url for exploring the project.
+
+http://localhost:8080/homePage 
+
+- try register, login and explore features of project
